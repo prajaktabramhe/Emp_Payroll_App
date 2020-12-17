@@ -12,16 +12,29 @@ class EmployeePayrollData
       return this._name;
     }
     set name(name) {
-      let nameRegex = RegExp("^[A-Z]{1}[a-z]{3,}$");
+      let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
        
         if (nameRegex.test(name)) 
         this._name = name;
         else throw "Name is incorrect";
       } 
 
+
+    
+    get startDate() {
+        return this._startDate;
+    }
+
+    set startDate(startDate) {
+    //if it is a future date it will throw error
+        if (startDate > new Date()) // date func will provide todays date
+        throw "Must not be Future Date";
+        else 
+        this._startDate = startDate;
+    }
+
       //method
       toString() {
-        //giving the type of date required
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         //if start date is not in the given datatype it will pass the value undefined to empdate
         const empDate = !this.startDate ? "undefined" :
