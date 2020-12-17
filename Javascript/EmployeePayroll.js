@@ -20,14 +20,14 @@ class EmployeePayrollData
       } 
 
 
-    // date func will provide todays date
+    
     get startDate() {
         return this._startDate;
     }
 
     set startDate(startDate) {
     //if it is a future date it will throw error
-        if (startDate > new Date())
+        if (startDate > new Date()) // date func will provide todays date
         throw "Must not be Future Date";
         else 
         this._startDate = startDate;
