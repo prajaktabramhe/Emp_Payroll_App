@@ -72,7 +72,6 @@ set startDate(startDate) {
 }
 
 
-
 //method
 toString() {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
