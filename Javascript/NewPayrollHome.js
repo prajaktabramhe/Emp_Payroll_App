@@ -1,3 +1,4 @@
+/*
 const createEmployeePayrollJSON = () => { 
     let empPayrollListLocal = [
         {
@@ -27,10 +28,19 @@ const createEmployeePayrollJSON = () => {
     ]
     return empPayrollListLocal
 }
-
+*/
+let empPayrollList
 window.addEventListener('DOMContentLoaded', (event) => {
-    createInnerHtml();
+    empPayrollList = getEmpPayrollDataFromStorage()
+    document.querySelector(".emp-count").textContent = empPayrollList.length
+    createInnerHtml()
+    localStorage.removeItem('editEmp')
 })
+
+function getEmpPayrollDataFromStorage() {
+    return localStorage.getItem('EmployeePayrollList') ? 
+                JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+}
 
 function createInnerHtml() {
     const headerHtml = `<tr><th></th><th>Name</th><th>Gender</th><th>Department</th>
