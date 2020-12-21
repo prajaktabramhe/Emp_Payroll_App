@@ -34,17 +34,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
             function createAndUpdateStorage(employeePayrollData)
             {
-                let EmployeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
-                if(EmployeePayrollList != undefined)
+                let employeePayrollData = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+                if(employeePayrollList != undefined)
                 {
-                    EmployeePayrollList.push(employeePayrollData);
+                    employeePayrollList.push(employeePayrollData);
                 } else 
                 {
-                    EmployeePayrollList = [employeePayrolData]
+                    employeePayrollList = [employeePayrolData]
                 
                 }
-                alert(EmployeePayrollList.toString());
-                localStorage.setItem("EmployeePayrollList", JSON.stringify(EmployeePayrollList));
+                alert(employeePayrollList.toString());
+                localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList));
             }
 
             //Use Case 13
@@ -61,8 +61,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
             employeePayrollData.department = getSelectedValues('[name=department]');
             employeePayrollData.salary = getInputValueById('#salary');
             employeePayrollData.note = getInputValueById('#notes');
-            let date = getInputValueById('#day') +" "+ getInputValueById('#month') +" "+ getInputValueById('#year');
-            employeePayrollData.date = Date.parse(date);
+            let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
+            employeePayrollData.startDate = Date.parse(date);
             alert(employeePayrollData.toString());
             return employeePayrollData;
 
@@ -82,7 +82,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return value;
             }
 
-            const getInputElementValue = (id) => {
-            let value = document.getElementById(id).value;
-            return value;
-            }
+            
