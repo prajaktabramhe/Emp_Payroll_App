@@ -73,11 +73,14 @@ set startDate(startDate) {
 
 //method
 toString() {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    const empDate = !this.startDate ? "undefined" : this.startDate;
-    
-    return "id=" + this.id + ", name=" + this.name + ", gender=" + this.gender + 
-           ", profilePic=" + this.profilePic + ", department=" + this.department +
-           ", salary=" + this.salary + ", startDate=" + this.startDate + ", note=" + this.note;
+   console.log("hash 99", this);
+    return Object.values(this);
+    let thisStr = ''
+    Object.keys(this).forEach(k => {
+        thisStr = thisStr + ( k + ':'  + this[k] + '\n')
+    })
+    return thisStr
   }
-}
+
+ }
+
