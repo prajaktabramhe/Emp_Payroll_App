@@ -1,4 +1,4 @@
-/*
+
 const createEmployeePayrollJSON = () => { 
     let empPayrollListLocal = [
         {
@@ -13,31 +13,21 @@ const createEmployeePayrollJSON = () => {
             _id:new Date().getTime(),
             _profilePic:'../Assets/profile_4.jpg'
         },
-        {
-            _name:'Sanket Bramhe',
-            _gender:'Male',
-            _department:[
-                'Engineering','Sale'
-            ],
-            _salary:'400000',
-            _startDate:'25 oct 2020',
-            _note:'',
-            _id:new Date().getTime(),
-            _profilePic:'../Assets/profile_1.png'
-        }
+        
     ]
     return empPayrollListLocal
 }
-*/
+
 let empPayrollList
 window.addEventListener('DOMContentLoaded', (event) => {
     empPayrollList = getEmpPayrollDataFromStorage()
     document.querySelector(".emp-count").textContent = empPayrollList.length
     createInnerHtml()
-    localStorage.removeItem('editEmp')
+    
 })
 
 function getEmpPayrollDataFromStorage() {
+    alert("GET PAYROLL DATA FROM STORAGE");
     return localStorage.getItem('EmployeePayrollList') ? 
                 JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
 }
@@ -46,8 +36,8 @@ function createInnerHtml() {
     const headerHtml = `<tr><th></th><th>Name</th><th>Gender</th><th>Department</th>
         <th>Salary</th><th>start Date</th><th>Actions</th></tr>`    
     let innerHtml = `${headerHtml}`
-    let empPayrollList = createEmployeePayrollJSON()
-    for(let empPayrollData of empPayrollList) {
+    let empPayrollList = getEmpPayrollDataFromStorage()
+        for(let empPayrollData of empPayrollList) {
         innerHtml = `${innerHtml}
         <tr>
         <td><img src="${empPayrollData._profilePic}" class="profile" width="30px" alt=""></td>
@@ -57,7 +47,7 @@ function createInnerHtml() {
         <td>${empPayrollData._salary}</td>
         <td>${empPayrollData._startDate}</td>
         <td>
-            <img id="1" name="${empPayrollData._id}" onclick="remove(this)" alt="delete" width="30px" src="../Assets/icons/delete.png">
+            <img id="1" name="${empPayrollData._name}" onclick="remove(this)" alt="delete" width="30px" src="../Assets/icons/delete.png">
             <img id="1" name="${empPayrollData._id}" onclick="update(this)" alt="edit" width="30px" src="../Assets/icons/create.png">
         </td>
     </tr>`
@@ -69,6 +59,22 @@ function getDeptHtml(deptList)
     let deptHtml = ''
     for(const dept of deptList) {
         deptHtml = `${deptHtml} <div class='dept-label'>${dept}</div>`
-    }
+   }
     return deptHtml
 }
+
+//for remove
+
+const remove = (node) => {
+    //console.log("harsha69", node.name, "harsha70",node._name);
+    //console.log("Harsha71",empPayrollList);
+     let empPayrollData = empPayrollList.find(empData => empData._name == node.name);
+  //console.log("Harsha72",empPayrollData);
+    if (!empPayrollData) return;
+    const index = empPayrollList.map(empData => empData._name).indexOf(empPayrollData._name);
+    empPayrollList.splice(index, 1);
+   
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
+    createInnerHtml();
+} 
