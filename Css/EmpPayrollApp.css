@@ -199,30 +199,24 @@ select {
   }
   
   /* UC7 */
-  @media only screen and (max-width: 960px) {
-    .row-content {
-        display: block;
-        flex-direction: row;
-        margin-bottom: 10px;
-        align-items: center;
-        border: 0px solid green;
-    }
-    .profile 
-    {
-    width: 30px;
-    border-radius: 50%;
-    margin-left: 12px;
-    }
+  @media only screen and (max-width:960px) {
     .cancelButton {
-      margin-left: 100px;
+        margin-left: 0px;
     }
-    .form {
-      width: 100%;
-      padding: 44px 20px;
+    .form{
+        width: 85%;
+        padding: 44px 20px;
     }
-  }
+    .checkbox-content, .profile-radio-content {
+        
+        width: 55%;
+    }
+}   
   
   @media only screen and (max-width: 600px) {
+    .profile-radio-content, .gender-content, .checkbox-content {
+      flex-flow: wrap;
+  }
     .row-content {
         display: block;
         flex-direction: row;
@@ -231,42 +225,41 @@ select {
         border: 0px solid green;
     }
     .form {
-      margin-top: 10px;
+      margin-top: 0px;
       width: 100%;
     }
     .row {
       flex-direction: column;
     }
-    .uploadButton {
+    .submitButton {
       justify-content: flex-start;
-    }
+  }
     .profile 
     {
     width: 30px;
     border-radius: 50%;
     margin-left: 12px;
     }
-    .profile-radio-button {
-      flex-flow: wrap;
-    }
+    
     .submit-reset {
       width: 100%;
-      display: inline-block;
+      display: flex;
       flex-grow: 1;
       flex-direction: row-reverse;
       justify-content: space-between;
       margin-bottom: 20px;
-    }
-    .submitButton {
-      margin: 0;
-    }
-    .buttonParent {
-      flex-direction: column-reverse;
-      align-items: flex-start;
-    }
-    .cancelButton {
-        margin-left: 100px;
-      }
+  }
+  .button {
+    min-width: 100px;
+}
+.submitButton {
+  margin: 0;
+  
+}
+.buttonParent {
+  flex-direction: column-reverse;
+  align-items: flex-starta;
+}
   }
   error-output 
   {
