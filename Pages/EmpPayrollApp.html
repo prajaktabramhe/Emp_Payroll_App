@@ -18,16 +18,17 @@
           </div>
         </div>
     </header>
-    <!-- UC2: -->
+   
     <div class="form-content">
-        <div class="form" action="#" on reset="resetForm()"  onsubmit="save();return false">
+        <form action="#" class="form" onsubmit="save();return false">
             <div class="form-head">Employee Payroll form </div>
               <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
                 <error-output class="text-error" for="text"></error-output>
               </div>
-    <!-- UC3: Profile pic-->
+              
+   
               <div class="row-content">
                 <label for="profile" class="lable text">Profile image</label>
                 <div class="profile-radio-content">
@@ -53,7 +54,7 @@
                     </label>
                 </div>
             </div>
-     <!-- UC4: Gender ,department, Salary -->
+    
         <div class="row-content">
             <label class="label text" for="gender">Gender</label>
             <div>
@@ -63,28 +64,30 @@
                 <label class="text" for="female">Female</label>
             </div>
         </div>
+        
         <div class="row-content">
             <label class="label text" for="department">Department</label>
             <div>
-                <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+                <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
                 <label class="text" for="hr">HR</label>
-                <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+                <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
                 <label class="text" for="sales">Sales</label>
-                <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+                <input class="checkbox" type="checkbox" id="finance" name="department" value="Finance">
                 <label class="text" for="finance">Finance</label>
-                <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
+                <input class="checkbox" type="checkbox" id="engineer" name="department" value="Engineer">
                 <label class="text" for="engineer">Engineer</label>
-                <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
+                <input class="checkbox" type="checkbox" id="others" name="department" value="Others">
                 <label class="text" for="others">Others</label>
             </div>
         </div>
+        
         <div class="row-content">
             <label class="label text" for="salary">Choose your Salary: </label>
             <input class="input" type="range" id="salary" name="salary" min="300000" max="500000" step="100"
                 value="400000">
             <output class="salary-output text" for="salary">400000</output>
         </div>
-   <!-- UC5: Adding Start Date -->
+    
    <div class="row-content">
     <label class="label text" for="startDate"> Start Date </label>
     <div>
@@ -144,10 +147,10 @@
         </select>
     </div>
     </div>
-    <!----UC6---->
+ 
     <div class="row-content">
-        <label class="label text" for="notes">Notes</label>
-        <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
+        <label class="label text" for="note">Notes</label>
+        <textarea id="note" class="input" name="note" placeholder="Message" style="height:100px"></textarea>
     </div>
     <div class="buttonParent">
         <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
@@ -156,8 +159,8 @@
             <button type="reset" class="resetButton button" id="reset">Reset</button>
         </div>
     </div>
-    </form>
-    </div>
+   </form>
+</div>
 <script src="../Javascript/EmpPayrollApp.js"></script>
 <script src="../Javascript/EmployeePayroll.js"></script>
 </body>
