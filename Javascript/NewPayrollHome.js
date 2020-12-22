@@ -64,22 +64,3 @@ function getDeptHtml(deptList) {
   return deptHtml;
 }
 
-//for remove
-
-const remove = (node) => {
-  //console.log("harsha69", node.name, "harsha70",node._name);
-  //console.log("Harsha71",empPayrollList);
-  let empPayrollData = empPayrollList.find(
-    (empData) => empData._name == node.name
-  );
-  //console.log("Harsha72",empPayrollData);
-  if (!empPayrollData) return;
-  const index = empPayrollList
-    .map((empData) => empData._name)
-    .indexOf(empPayrollData._name);
-  empPayrollList.splice(index, 1);
-
-  localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
-  document.querySelector(".emp-count").textContent = empPayrollList.length;
-  createInnerHtml();
-};
