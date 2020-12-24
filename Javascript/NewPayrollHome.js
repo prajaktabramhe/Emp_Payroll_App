@@ -18,7 +18,9 @@ let empPayrollList;
 window.addEventListener("DOMContentLoaded", (event) => {
   empPayrollList = getEmpPayrollDataFromStorage();
   document.querySelector(".emp-count").textContent = empPayrollList.length;
+  localStorage.removeItem('editEmp');
   createInnerHtml();
+  
 });
 
 function getEmpPayrollDataFromStorage() {
@@ -49,7 +51,7 @@ function createInnerHtml() {
               empPayrollData._name
             }" onclick="remove(this)" alt="delete" width="30px" src="../Assets/icons/delete.png">
             <img id="1" name="${
-              empPayrollData._id
+              empPayrollData._name
             }" onclick="update(this)" alt="edit" width="30px" src="../Assets/icons/create.png">
         </td>
     </tr>`;
@@ -84,3 +86,20 @@ const remove = (node) => {
     createInnerHtml();
   };
   
+//for update
+const update = (node) => {
+  alert("inside update");
+  alert("node name1= "+node.name);
+  
+  let employeePayrollData = empPayrollList.find(
+    (empData) => empData._name == node.name
+  );
+  if (!employeePayrollData) {
+    return;
+  }
+  //alert("inside json= " +JSON.stringify(employeePayrollData));
+  localStorage.setItem('editEmp',JSON.stringify(employeePayrollData));
+  console.log("sanket");
+    window.location.replace("../Pages/EmpPayrollApp.html");
+}
+
