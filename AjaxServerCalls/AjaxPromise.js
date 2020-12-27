@@ -24,9 +24,9 @@ function makePromiseCall(methodType, url, async = true, data = null) {
         console.log(methodType + " request sent to the server");
     });
 }
-
+//start 
 const getURL = "http://127.0.0.1:3000/employees/";
-makePromiseCall("GET", getURL, true)
+makePromiseCall("GET", getURL, true)//calling the function and pass the argument
     .then(responseText => {
         console.log("Get User Data:" + responseText)
     })
