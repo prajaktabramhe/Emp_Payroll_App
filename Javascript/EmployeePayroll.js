@@ -70,6 +70,7 @@ class EmployeePayrollData {
 
   //method
   toString() {
+    
     console.log("hash 99", this);
     return Object.values(this);
     let thisStr = "";
